@@ -1,0 +1,666 @@
+
+
+*,*::before,*::after{
+  margin:0;
+  padding:0;
+  box-sizing: inherit;
+}
+
+
+@import "component/variables";
+@import "component/media";
+
+
+html{
+  font-size: 62.5%; // 10 / 16 = 0.625
+   
+  @include respond(desktop){
+    font-size: 100%;
+  }
+
+  @include respond(tab-land){
+    font-size: 60%;
+  }
+  @include respond(tab-port){
+    font-size: 50%;
+  }
+
+  @include respond(small-port){
+    font-size: 45%;
+  }
+
+  @include respond(phone){
+    font-size: 35%;
+  }
+  @include respond(small-phone){
+    font-size: 25%;
+  }
+}
+
+
+body{
+  font-family: roboto, 'Times New Roman', Times, serif;
+  line-height: 1.6;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-size: 2rem;
+}
+
+.container{
+  margin:0 auto;
+  max-width:120rem;
+
+ 
+}
+.header{
+  padding:1.5rem 0;
+  background: $colorInfo;
+  border-bottom: solid 1.2rem $colorWhite;
+}
+
+.navbar{
+  display:flex;
+  justify-content: space-between;
+  @include respond(tab-land){
+   padding:0 8rem;
+  
+  }
+ 
+  &__title{
+  display:flex;
+  }
+  &__img{
+    height:5rem;
+    margin-right:2rem;
+  }
+
+  &__text{
+    text-transform: uppercase;
+    color:$colorWhite;
+  }
+  &__list{
+    display: flex;
+  }
+
+  &__item{
+   list-style: none;
+    &:not(:last-child){
+    margin-right: 2rem;
+   }
+    transition: all .5s ease;
+   &:hover{
+    transform: scale(1.3);
+   }
+  }
+
+  &__link,&__link:link,&__link:visited{
+   text-decoration: none;
+   display:block;
+   color:$colorWhite;
+   font-size: 2.2rem;
+  
+  }
+}
+
+#home-bg{
+  background:linear-gradient(to top,rgba($colorSecondary,.4),rgba(rgba($colorSecondary,.4),.4)), url(../../images/img-16.jpg);
+   height: 80%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position:relative;
+  @include respond(tab-land){
+     background:linear-gradient(to top,rgba($colorSecondary,.4),rgba(rgba($colorSecondary,.4),.4)), url(../../images/img-small-16.jpg);
+     background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+    height: 70%;
+  }
+   @include respond(tab-port){
+
+      height: 80%;
+   }
+
+}
+
+.home-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ 
+ 
+ position:absolute;
+  top:65%;
+ left:50%;
+  transform: translate(-50%, -50%);
+  &__btn{
+   margin:0 10rem 0 5rem;
+   color:$colorWhite;
+   text-transform:uppercase;
+   background: $colorInfo;
+   border: none;
+   padding:2rem 6rem;
+   font-weight: bolder;
+   border-radius: 2rem;
+   font-size: 2rem;
+   transition: all .5s ease-in-out;
+   &:hover{
+    background: $colorWarning;
+    cursor: pointer;
+    transform: translateY(-.3rem);
+   }
+  }
+
+  &__text{
+  //  width:50%; 
+  margin-top: 2rem;
+  color:$colorWhite;
+  line-height: 1.6;
+  font-size: 2.4rem;
+  text-align: justify;
+  }
+}
+
+// home section end here
+
+// service section start here
+
+#service-bg{
+ background: linear-gradient(rgba($colorSecondary,.6), rgba($colorSecondary,.6)), url(../../images/img-4.jpg);
+height:120vh;
+ background-size: cover;
+ background-repeat: no-repeat;
+ margin-top: 2rem;
+ @include respond(tab-port){
+  background:linear-gradient(to top, rgba($colorSecondary,.5),rgba($colorSecondary,.5)), url(../../images/img-small-4.jpg);
+ height: 90vh;
+ background-size: cover;
+ background-repeat: no-repeat;
+ }
+
+  @include respond(tab-port){
+     height: 170vh;
+  }
+  @include respond(phone){
+     height: 200vh;
+  }
+  @include respond(small-phone){
+     height: 150vh;
+  }
+}
+.service-heading-bg{
+   padding:3rem;
+    text-align: center;
+    background: $colorWhite;
+}
+.service-heading{
+  text-transform: uppercase;
+  font-size: 4rem;
+  background: linear-gradient(105deg, brown,$colorInfo);
+  display: inline-block;
+  background-clip: text;
+  color:transparent;
+  transition: all .5s ease;
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.3) skewY(-5deg);
+  }
+}
+
+
+.service{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 6rem 2rem;
+   @include respond(tab-port){
+   padding: 4rem 20rem;
+   display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+ }
+ @include respond(phone){
+   padding: 4rem 20rem;
+   display:grid;
+    grid-template-columns: repeat(1, 1fr);
+    // grid-template-rows: repeat(2, 1fr);
+ }
+ 
+  &__wrapper{
+    height:40rem;
+    box-shadow: 0 .7rem 2rem rgba($colorSecondary,.8);
+    border-radius: 1rem;
+   text-align: center;
+   background: $colorWhite;
+   width: 100%;
+   transition: all .4s ease;
+  cursor: pointer;
+   &:hover{
+    transform: translateY(-.5rem) scale(1.02);
+  }
+  }
+ 
+  &__img{
+      background-blend-mode:screen;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    &--1{
+     background:linear-gradient($colorSuccess,$colorSuccess), url(../../images/img-4.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     height: 50%;
+     @include respond(tab-port){
+       background:linear-gradient($colorSuccess,$colorSuccess), url(../../images/img-small-4.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     height: 50%;
+     }
+    }
+
+    &--2{
+      background:linear-gradient($colorDanger,$colorDanger), url(../../images/img-14.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     height: 50%;
+     @include respond(tab-port){
+       background:linear-gradient($colorDanger,$colorDanger), url(../../images/img-small-14.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     height: 50%;
+     }
+    }
+    &--3{
+      background:linear-gradient($colorWarning,$colorWarning), url(../../images/img-17.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     height: 50%;
+     @include respond(tab-port){
+       background:linear-gradient($colorWarning,$colorWarning), url(../../images/img-small-17.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     height: 50%;
+     }
+    }
+    &--4{
+      background:linear-gradient($colorPrimary,$colorPrimary), url(../../images/img-22.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     height: 50%;
+     @include respond(tab-port){
+       background:linear-gradient($colorPrimary,$colorPrimary), url(../../images/img-small-22.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     height: 50%;
+     }
+    }
+  }
+
+  &__heading2{
+   padding:0 2rem 1rem 0;
+   margin-top: 1.4rem;
+  
+  }
+
+  &__heading3{
+  padding: 0 2rem 1rem 0;
+  }
+  &__text{
+    padding: 0 2rem;
+    text-align: justify;
+    padding:1rem 1rem;
+    font-size: 1.3rem;
+    @include respond(tab-port){
+      text-align: center;
+    }
+  }
+}
+
+// service end here
+
+// gallery start here
+
+#gallery-bg{
+ background:linear-gradient(to top, rgba($colorSecondary,.5),rgba($colorSecondary,.5)), url(../../images/img-8.jpg);
+ height: 150vh;
+ background-size: cover;
+ background-repeat: no-repeat;
+ @include respond(tab-land){
+  height: 170vh;
+ }
+ @include respond(tab-port){
+  height: 250vh;
+ }
+  @include respond(small-port){
+  height: 200vh;
+ }
+ @include respond(phone){
+  height: 630vh;
+ }
+ @include respond(small-phone){
+  height: 430vh;
+ }
+ 
+
+}
+
+.gallery-heading-bg{
+   background: $colorPink;
+   padding: 3rem 0;
+   text-align: center;
+   text-transform: uppercase;
+   font-size: 3rem;
+
+  
+}
+
+.gallery-heading{
+     transition: all .4s ease-in;
+     cursor: pointer;
+   &:hover{
+    transform: rotate(-3deg) scaleX(1.1);
+   }
+
+}
+
+.main-gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap:2rem;
+    padding:4rem 0;
+    @include respond(tab-land){
+     padding:2rem 4rem;
+ }
+  @include respond(tab-port){
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4,1fr);
+    padding:5rem;
+  }
+
+  @include respond(phone){
+ display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding:5rem;
+ }
+  &__img{
+    width:100%;
+    border: solid .5rem $colorWhite;
+    border-radius: .4rem;
+    
+    &--1{
+
+    }
+    &--9{
+     
+      @include respond(tab-port){
+       display: none;
+      }
+      @include respond(phone){
+       display: block;
+      }
+    }
+  }
+
+
+}
+
+#about-bg{
+background:linear-gradient(to top, rgba($colorInfo,.6),rgba($colorInfo,.6)), url(../../images/img-15.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+@include respond(tab-land){
+  height: 120%;
+}
+@include respond(small-port){
+  height: 90%;
+}
+@include respond(phone){
+  height: 130%;
+}
+@include respond(small-phone){
+  height: 90%;
+}
+@include respond(tab-port){
+  background:linear-gradient(to top, rgba($colorInfo,.6),rgba($colorInfo,.6)), url(../../images/img-small-15.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+} 
+
+.about-heading-bg{
+ background: $colorWhite;
+ padding:4rem;
+ text-align:center;
+ text-transform: uppercase;
+ 
+
+}
+
+.about-heading{
+font-size: 3rem;
+ transition: all .4s ease-in-out;
+ cursor: pointer;
+   &:hover{
+  transform: scale(1.1) skewY(-3deg);
+ }
+}
+
+.about{
+    display:flex;
+    gap:3rem;
+    padding:5rem 0;
+    justify-content: space-evenly;
+    @include respond(tab-land){
+      padding:3rem;
+    }
+    @include respond(phone){
+      display:flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+     text-align: center;
+      padding: 4rem;
+    }
+  &__left{
+   flex:1;
+   @include respond(phone){
+    padding:0 5rem;
+   }
+  }
+  &__heading-left{
+   text-transform: uppercase;
+   color:$colorWhite;
+   margin-bottom: 1.7rem;
+  }
+
+  &__para{
+    color:$colorWhite;
+    text-align: justify;
+   &:not(:last-child){
+    margin-bottom: 2rem;
+   }
+   
+  }
+  
+  &__btn,&__btn:link,&__btn:visited{
+    text-decoration: none;
+    display: inline-block;
+    color:$colorSecondary;
+    text-transform: capitalize;
+    font-size: 2.5rem;
+    background: $colorWhite;
+    padding: 1.5rem 3.5rem;
+    border-radius: 10rem;
+    transition: all .4s ease-in;
+    box-shadow: 0 1rem 2rem rgba($colorSecondary,.8);
+  }
+
+  &__btn:hover{
+    background:$colorSuccess;
+    color:$colorWhite;
+     transform: translateY(-1rem);
+  }
+  &__btn:active{
+    transform: translateY(-.6rem);
+  }
+
+
+
+&__right{
+   flex:1;
+   align-self: end;
+   text-align: center;
+   @include respond(phone){
+     align-self: center;
+      padding: 6rem 0;
+   }
+}
+
+&__img{
+  width:45rem;
+  height: 45rem;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1.5rem solid $colorWhite;
+  transition: all 1s ease;
+  text-align: center;
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+}
+
+// about section styling end here
+
+// contact section styling begins here
+
+#contact-bg{
+ background:linear-gradient(to top, rgba($colorInfo,.6),rgba($colorInfo,.6)), url(../../images/img-5.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ height: 100%;
+
+ @include respond(tab-land){
+  height:110%;
+ }
+ @include respond(tab-port){
+  background:linear-gradient(to top, rgba($colorInfo,.6),rgba($colorInfo,.6)), url(../../images/img-small-5.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ }
+ @include respond(phone){
+  height:70%;
+ }
+ @include respond(small-phone){
+  height:50%;
+ }
+
+}
+
+.contact-heading-bg{
+  background: $colorWhite;
+}
+
+.contact-heading{
+   text-transform: uppercase;
+   padding:3rem 0;
+   text-align: center;
+   transition: all .4s ease-in;
+   &:hover{
+    transform: scale(1.4) skewY(-3deg);
+   }
+  
+}
+
+.form{
+  padding:2rem 0;
+  @include respond(tab-land){
+    padding:3rem 0;
+  }
+  &__group{
+   width:50%;
+   margin: 0 auto;
+   &:not(:last-child){
+    margin-bottom: 1rem;
+   }
+  }
+  &__input{
+   font-size: 2rem;
+   padding:1rem;
+   width:100%;
+   border-radius: .4rem;
+   border: none;
+   opacity: .6;
+   border-bottom: .5rem solid transparent;
+   transition: all .4s ease-in;
+   box-shadow: 0 1rem 1rem rgba($colorSecondary,.8);
+  }
+
+
+
+  &__input:focus{
+    outline:none;
+    border-bottom: .5rem solid $colorSuccess;
+  }
+
+  &__input:focus:invalid{
+      border-bottom: .5rem solid $colorDanger;
+  }
+
+  textarea{
+  resize: none;
+  height: 15rem;
+  }
+ &__input[type="submit"]{
+ text-transform: uppercase;
+ font-weight: bolder;
+ cursor: pointer;
+ &:hover{
+   background:$colorInfo;
+    color:$colorWhite;
+ }
+ }
+ 
+}
+
+// contact styling end here
+
+//footer styling begins here
+
+#footer-bg{
+  background: $colorSecondary;
+  border-top: 1rem solid $colorWhite;
+}
+
+.footer{
+   padding: 2rem 0;
+   color:$colorWhite;
+   display: flex;
+   justify-content: space-between;
+     font-size: 3rem;
+     @include respond(tab-land){
+      padding:2rem 5rem;
+     }
+  &__left{
+ 
+   text-transform: capitalize;
+  }
+
+  &__right{
+
+  }
+}
